@@ -38,10 +38,47 @@ const restaurant = {
 
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`);
+  },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
   }
 };
 
+ // REST PATTERN
 
+
+ // 1) Destructoring
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, others);
+
+const [pizza, ,risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+console.log(pizza, risotto, otherFood);
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) Functions
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+}
+
+add(2, 3);
+add(5, 3, 6, 4);
+add(5, 8, 7, 9, 6, 1, 3, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('cheese', 'mashrooms', 'olives', 'spinch');
+
+restaurant.orderPizza('mashrooms')
+
+/*
 // SPREAD OPERATOR
 
 const arr = [7, 8, 9];
@@ -84,14 +121,7 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
-
-
-
-
-
-
-
-
+*/
 
 /*
 // DESTRUCTORING OBJECTS
