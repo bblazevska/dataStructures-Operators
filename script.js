@@ -26,4 +26,81 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery: function ({starterIndex = 0, mainIndex = 0, time = '20:00', address}) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  }
 };
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2, 
+});
+
+restourant.orderDelivery({
+  address: 'Via del sole, 21',
+  starterIndex: 1,
+  
+})
+
+const {name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
+console.log(restaurantName, hours, tags);
+
+//setting default value in case the object doesn't have that property
+const { menu = [], starterMenu: starters = [] } = restaurant;
+
+console.log(menu, starters);
+
+// mutating variables
+let a = 111;
+let b = 999;
+console.log(a, b, 'before mutating value');
+
+const obj = { a: 23, b: 7, c: 14 };
+
+// { a, b } = obj; //gives error
+
+({ a, b } = obj);
+console.log(a, b);
+
+// nested objects destructuring
+
+const { fri: {open, close} } = openingHours;
+console.log(open, close);
+
+
+
+
+
+/*
+const arr = [1, 2, 3];
+
+const [x, y, z] = arr;  //destructuring array
+console.log(x, y, z);
+
+
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+
+[main, secondary] = [secondary, main]; //switching the values using destructoring
+console.log(main, secondary);
+
+//receive two return values from function
+const [starter, mainMeal] = restaurant.order(2, 0);
+console.log(starter, mainMeal);
+
+*/
