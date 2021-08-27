@@ -56,6 +56,29 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+// SETS
+const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+console.log(ordersSet);
+
+console.log(new Set('Bojana'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+// use of sets example
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
 /*
 // LOOPING OBJECTS
 
