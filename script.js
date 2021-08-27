@@ -45,8 +45,45 @@ const restaurant = {
   }
 };
 
- // REST PATTERN
+// OR and AND operators
+console.log('----- OR --------');
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 23);
 
+// restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10; // first way (not recommended)
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10; // recommended way
+console.log(guests2);
+console.log(1 || 'Hi' || true || 'Bojana');
+
+console.log('----- AND --------');
+
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'jonas' );
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+// Nullish coalescing operator
+// restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullishh values: null and undefined
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
+
+/*
+ // REST PATTERN
 
  // 1) Destructoring
 const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
@@ -77,6 +114,7 @@ add(...x);
 restaurant.orderPizza('cheese', 'mashrooms', 'olives', 'spinch');
 
 restaurant.orderPizza('mashrooms')
+*/
 
 /*
 // SPREAD OPERATOR
