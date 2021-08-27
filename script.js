@@ -45,6 +45,17 @@ const restaurant = {
   }
 };
 
+// Arrays for-of loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+//getting the element and its index
+for (const [i, el] of menu.entries()) {
+  console.log(`${i+1}: ${el}`);
+}
+
+/*
 // OR and AND operators
 console.log('----- OR --------');
 console.log(3 || 'Jonas');
@@ -81,7 +92,7 @@ console.log(guests);
 // Nullishh values: null and undefined
 const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);
-
+*/
 /*
  // REST PATTERN
 
