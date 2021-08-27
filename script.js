@@ -56,7 +56,7 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
-
+/*
 // LOOPING OBJECTS
 
 // Property NAMES
@@ -78,6 +78,7 @@ console.log(entries);
 for (const [day, {open, close}] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
+*/
 
 /*
 //   optional chaining
