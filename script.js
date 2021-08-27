@@ -35,12 +35,7 @@ const restaurant = {
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  orderDelivery({
-    starterIndex = 0,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
+  orderDelivery({ starterIndex = 0, mainIndex = 0, time = '20:00', address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
@@ -57,6 +52,38 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////////////////////////////////////
+// MAPS
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Lisbon, Portugal');
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name'));
+// console.log(rest.get(true));
+
+const time = 21;
+console.log( rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+const arr = [1, 2];
+rest.set(arr, 'test');
+console.log(rest.get(arr));
+
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+
+/*///////////////////////////////////////////////////////////////////
 // SETS
 const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
 console.log(ordersSet);
@@ -78,8 +105,9 @@ for (const order of ordersSet) console.log(order);
 const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 const staffUnique = [...new Set(staff)];
 console.log(staffUnique);
+*/
 
-/*
+/*///////////////////////////////////////////////////////////////////
 // LOOPING OBJECTS
 
 // Property NAMES
@@ -103,7 +131,7 @@ for (const [day, {open, close}] of entries) {
 }
 */
 
-/*
+/*///////////////////////////////////////////////////////////////////
 //   optional chaining
 if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
@@ -131,7 +159,7 @@ const users = [
 console.log(users[0]?.name ?? 'Users array empty');
 */
 
-/*
+/*///////////////////////////////////////////////////////////////////
 // Arrays for-of loop
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
@@ -143,7 +171,7 @@ for (const [i, el] of menu.entries()) {
 }
 */
 
-/*
+/*///////////////////////////////////////////////////////////////////
 // OR and AND operators
 console.log('----- OR --------');
 console.log(3 || 'Jonas');
@@ -181,7 +209,8 @@ console.log(guests);
 const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);
 */
-/*
+
+/*///////////////////////////////////////////////////////////////////
  // REST PATTERN
 
  // 1) Destructoring
@@ -215,7 +244,7 @@ restaurant.orderPizza('cheese', 'mashrooms', 'olives', 'spinch');
 restaurant.orderPizza('mashrooms')
 */
 
-/*
+/*///////////////////////////////////////////////////////////////////
 // SPREAD OPERATOR
 
 const arr = [7, 8, 9];
@@ -260,7 +289,7 @@ console.log(restaurantCopy.name);
 console.log(restaurant.name);
 */
 
-/*
+/*///////////////////////////////////////////////////////////////////
 // DESTRUCTORING OBJECTS
 
 restaurant.orderDelivery({
@@ -303,11 +332,9 @@ console.log(a, b);
 
 const { fri: {open, close} } = openingHours;
 console.log(open, close);
-
-
 */
 
-/*
+/*///////////////////////////////////////////////////////////////////
 // DESTRUCTORING ARRAYS
 
 const arr = [1, 2, 3];
