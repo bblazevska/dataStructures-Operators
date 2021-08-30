@@ -68,8 +68,9 @@
 // team1 < team2 && console.log(`Team 1 is more likely to win. `);
 // team2 < team1 && console.log(`Team 2 is more likely to win. `);
 
+//////////////////////////////////////////////////////////////////
 // CHALLENGE #2
-
+/*
 // 1.
 for (const [i, name] of game.scored.entries())
   console.log(`Goal ${i + 1}: ${name}`);
@@ -96,3 +97,40 @@ for (const player of game.scored) {
 }
 
 console.log(scorers);
+*/
+
+//////////////////////////////////////////////////////////////////
+// CHALLENGE #3
+
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🟨 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔴 Yellow card'],
+]);
+ 
+// 1.
+const events = new Set([...gameEvents.values()]);
+console.log(events);
+
+// 2.
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+// 3.
+console.log(`An event happened, on average, every ${90 / gameEvents.size} minutes`);
+
+//4.
+for (const [minute, event] of gameEvents) {
+  minute < 45
+    ? console.log(`[FIRST HALF] ${minute}: ${event}`)
+    : console.log(`[SECOND HALF] ${minute}: ${event}`);
+}

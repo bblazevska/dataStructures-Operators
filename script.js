@@ -53,7 +53,42 @@ const restaurant = {
 };
 
 ///////////////////////////////////////////////////////////////////
-// MAPS
+// MAPS: ITERATION
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+// Convert objects to maps
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours)); 
+
+//Quiz app
+
+console.log(question.get('question'));
+for (const [key, value] of question) {
+if(typeof key === "number") console.log(`Answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt(`Your answer`));
+console.log(answer);
+
+answer === question.get('correct')? console.log(question.get(true)) : console.log(question.get(false));
+
+// COnverting map to array
+
+console.log([...question]);
+
+/*
+///////////////////////////////////////////////////////////////////
+// MAPS: FUNDAMENTALS
 
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
@@ -82,6 +117,7 @@ console.log(rest.get(arr));
 
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest);
+*/
 
 /*///////////////////////////////////////////////////////////////////
 // SETS
